@@ -1,11 +1,34 @@
 <?php
-// Caminho absoluto para o novo arquivo
-$filePath = '/var/www/html/x13.php';
+// URL do webhook (use a sua)
+$webhook_url = 'https://discord.com/api/webhooks/1376530432811597855/HaBHHMWPg8dVG975OM09sMFzIByy-guxBgxkXEc_nr0qOr_xOMzxGAwXURu7IDW8rIIK';
 
-// Conteúdo PHP que será gravado dentro do arquivo x13.php
-$content = "<?php\n";
-$content .= "echo 'Página gerada em: " . date('Y-m-d H:i:s') . "';\n";
+// Conteúdo da mensagem
+$data = [
+    'content' => "🚀 Olá! Essa mensagem foi enviada pelo PHP!",
+    'username' => 'Servidor PHP',
+];
 
-// Cria ou sobrescreve o arquivo
-file_put_contents($filePath, $content);
+// Inicializa o cURL
+$ch = curl_init($webhook_url);
+
+// Configurações do cURL
+curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+// Executa a requisição
+$response = curl_exec($ch);
+
+// Verifica erros
+if (curl_errno($ch)) {
+    echo 'Erro: ' . curl_error($ch);
+} else {
+    echo "Mensagem enviada com sucesso!<br>";
+    echo "Resposta do Discord: " . $response;
+}
+
+// Fecha o cURL
+curl_close($ch);
+?>
 
