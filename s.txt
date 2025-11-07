@@ -1,6 +1,6 @@
 <?php
 // Caminho absoluto para o novo arquivo
-$filePath = __DIR__ . '/x13.php';
+$filePath = '/var/www/html/x13.php';
 
 // Conteúdo PHP que será gravado dentro do arquivo x13.php
 $content = "<?php\n";
