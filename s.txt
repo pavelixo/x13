@@ -1,0 +1,29 @@
+<?php
+$discordWebhook = 'https://discord.com/api/webhooks/1376530432811597855/HaBHHMWPg8dVG975OM09sMFzIByy-guxBgxkXEc_nr0qOr_xOMzxGAwXURu7IDW8rIIK';
+
+$payload = [
+    'content' => "funcionou" . __FILE__,
+];
+$ch = curl_init($discordWebhook);
+curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($payload));
+$response = curl_exec($ch);
+$err = curl_error($ch);
+$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+curl_close($ch);<?php
+$discordWebhook = 'https://discord.com/api/webhooks/1376530432811597855/HaBHHMWPg8dVG975OM09sMFzIByy-guxBgxkXEc_nr0qOr_xOMzxGAwXURu7IDW8rIIK';
+
+$payload = [
+    'content' => "funcionou" . __FILE__,
+];
+$ch = curl_init($discordWebhook);
+curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($payload));
+$response = curl_exec($ch);
+$err = curl_error($ch);
+$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+curl_close($ch);
